@@ -1,0 +1,109 @@
+body {
+    background: black;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    width: 260px;
+    background: #111;
+    border: 1px solid #2a0000;
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+input[type="text"] {
+    width: 90%;
+    height: 55px;
+    font-size: 26px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+    padding: 0 12px;
+    margin-bottom: 15px;
+    background: #0d0d0d;
+    color: #ffffff;
+    border: 1px solid #2a0000;
+    border-radius: 10px;
+    outline: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    height: 52px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    background: #1a1a1a;
+    color: #cccccc;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+button:hover {
+    background: #2a0000;
+    color: #ffffff;
+    border-color: #660000;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.95);
+}
+
+.btn-op {
+    background: #1a0000;
+    color: #cc4444;
+    border-color: #3a0000;
+}
+
+.btn-op:hover {
+    background: #cc0000;
+    color: #ffffff;
+    border-color: #ff2222;
+}
+
+.btn-eq {
+    background: #cc0000;
+    color: #ffffff;
+    border-color: #ff1111;
+}
+
+.btn-eq:hover {
+    background: #ff1111;
+    border-color: #ff4444;
+}
+
+.clear {
+    grid-column: span 4;
+    background: #0d0d0d;
+    color: #880000;
+    border-color: #2a0000;
+}
+
+.clear:hover {
+    background: #1a0000;
+    color: #ff4444;
+    border-color: #660000;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(200, 0, 0, 0.45);
+    transform: scale(0);
+    animation: ripple-anim 0.45s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to { transform: scale(4); opacity: 0; }
+}

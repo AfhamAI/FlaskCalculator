@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="calculator">
+    <form method="POST">
+        <input type="text" name="expression" value="{{ expression }}" readonly>
+        <div class="buttons">
+            <button name="value" value="7">7</button>
+            <button name="value" value="8">8</button>
+            <button name="value" value="9">9</button>
+            <button name="value" value="/" class="btn-op">÷</button>
+
+            <button name="value" value="4">4</button>
+            <button name="value" value="5">5</button>
+            <button name="value" value="6">6</button>
+            <button name="value" value="*" class="btn-op">×</button>
+
+            <button name="value" value="1">1</button>
+            <button name="value" value="2">2</button>
+            <button name="value" value="3">3</button>
+            <button name="value" value="-" class="btn-op">−</button>
+
+            <button name="value" value="0">0</button>
+            <button name="value" value=".">.</button>
+            <button name="value" value="=" class="btn-eq">=</button>
+            <button name="value" value="+" class="btn-op">+</button>
+
+            <button name="value" value="C" class="clear">C</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.querySelectorAll('.buttons button').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            var r = document.createElement('span');
+            r.className = 'ripple';
+            var rect = btn.getBoundingClientRect();
+            var size = Math.max(rect.width, rect.height);
+            r.style.width  = size + 'px';
+            r.style.height = size + 'px';
+            r.style.left   = (e.clientX - rect.left - size / 2) + 'px';
+            r.style.top    = (e.clientY - rect.top  - size / 2) + 'px';
+            btn.appendChild(r);
+            setTimeout(function () { r.remove(); }, 500);
+        });
+    });
+</script>
+
+</body>
+</html>
